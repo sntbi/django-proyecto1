@@ -84,5 +84,5 @@ def probando(request):
     lista = list(range(500))
     
     numeros = random.choices(lista, k=50)
-    print(numeros)
+    
     return render(request,'probando_if_for.html', {'numeros': numeros})
