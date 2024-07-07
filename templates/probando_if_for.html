@@ -1,5 +1,13 @@
 {% extends "base.html" %}
-{% block h1_header %}Probando IF{% endblock h1_header %}
+{% load static %}
+
+
+
+{% block header %}
+<h1>
+Probando IF
+</h1>
+{% endblock header %}
 
 {% block contenido %}
 <ul>
@@ -11,5 +19,8 @@
         {% endif %}
     {% endfor%}
 </ul>
+
+<img src={%static "assets/img/testimonials-1.jpg"%} alt="">
+
 {% endblock contenido %}
 

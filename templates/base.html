@@ -6,7 +6,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Landing Page - Start Bootstrap Theme</title>
+        <title>
+            {% block title_head %}
+            Mi proyectito
+            {% endblock title_head %}
+        </title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -20,11 +24,18 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#!">Start Bootstrap</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+                <a class="navbar-brand" href={% url "inicio" %}>Inicio</a>
+                
+                <a class="navbar-brand" href={% url "probando" %}>Probando</a>
+                
+                <a class="navbar-brand" href={% url "crear_alumno" 'Julian' 'Alvarez' %}>Creacion Alumno</a>
+
+
+                {% comment %} <a class="btn btn-primary" href="#signup">Sign Up</a> {% endcomment %}
             </div>
         </nav>
         <!-- Masthead-->
+        {% block header %}
         <header class="masthead">
             <div class="container position-relative">
                 <div class="row justify-content-center">
@@ -36,27 +47,13 @@
                                 
                                 {% endblock h1_header %}
                             </h1>
-                            <!-- Signup form-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
-                            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                                
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            </form>
-                        </div>
+                        </div> 
                     </div>
                 </div>
             </div>
-        </header>      
+        </header>
+        {% endblock header %}
+          
         
         <main> 
             {% block contenido %}
