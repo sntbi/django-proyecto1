@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documento</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block h1_header %}Probando IF{% endblock h1_header %}
 
-    <ul>
-        {%for num in numeros %}
-            {% if num > 250 %}
-            <li style="color:red">pepito {{num}}</li>
-             {% else %}
-             <li style="color:blue">pepito {{num}}</li>
-            {% endif %}
-        {% endfor%}
-    </ul>
- 
+{% block contenido %}
+<ul>
+    {%for num in numeros %}
+        {% if num > 250 %}
+        <li style="color:red">pepito {{num}}</li>
+         {% else %}
+         <li style="color:blue">pepito {{num}}</li>
+        {% endif %}
+    {% endfor%}
+</ul>
+{% endblock contenido %}
 
-
-</body>
-</html>
