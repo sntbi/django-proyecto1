@@ -1,10 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from datetime import datetime
 
 from django.http import HttpResponse
 from django.template import Template, Context, loader
 
 from inicio.models import Alumno
+
+from inicio.forms import CrearAlumnoFormulario
 
 import random
 
@@ -95,3 +97,39 @@ def crear_alumno(request, nombre, apellido):
     alumno.save()
     return render(request,'alumno_templates/creacion.html', {'alumno': alumno})
     
+    
+def crear_alumno_v2 (request):
+    # V1
+    # print('Valor de la request: ' , request)
+    # print('Valor de GET: ' , request.GET)
+    # print('Valor de POST: ' , request.POST)
+    
+ 
+    # if request.method == 'POST' :
+    #     alumno = Alumno(nombre=request.POST.get('nombre'), apellido=request.POST.get('apellido'))
+    #     alumno.save()
+    
+    #V2
+    print('Valor de la request: ' , request)
+    print('Valor de GET: ' , request.GET)
+    print('Valor de POST: ' , request.POST)
+    
+ 
+    if request.method == 'POST' :
+        formulario = CrearAlumnoFormulario(request.POST)
+        if formulario.is_valid():
+            datos = formulario.cleaned_data
+            alumno = Alumno(nombre=datos.get('nombre'), apellido=datos.get('apellido'))
+            alumno.save()
+            return redirect('alumnos')
+            
+    formulario = CrearAlumnoFormulario()
+    return render (request, 'inicio/crear_alumno_v2.html', {'formulario': formulario})
+
+
+
+def alumnos(request):
+    
+    alumnos = Alumno.objects.all()
+    
+    return render(request, 'inicio/alumnos.html', {'alumnos': alumnos})

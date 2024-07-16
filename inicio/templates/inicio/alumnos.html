@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Lista Alumnos
+{% endblock title_head %}
+
+
+{% block h1_header %}
+Alumnos
+{% endblock h1_header %}
+
+{% block contenido %}
+{% if alumnos %}
+    <ul>
+        {% for alumno in alumnos %}
+        <li>{{alumno}}</li>
+        {% endfor %}
+    </ul>
+
+{% else %}
+<p>
+    No hay alumnos creados
+</p>
+{% endif %}
+
+{% endblock contenido %}

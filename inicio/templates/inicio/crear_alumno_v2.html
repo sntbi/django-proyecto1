@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Crear Alumno
+{% endblock title_head %}
+
+
+{% block h1_header %}
+Pasaste por aca
+{% endblock h1_header %}
+
+{% block contenido %}
+
+<form action={% url "crear_alumno_v2" %} method="POST">
+    {% csrf_token %}
+    {% comment %} <p>
+        Nombre:
+        <input type="text" name="nombre">
+    </p>
+    <p>
+        Apellido:
+        <input type="text" name="apellido">
+    </p> {% endcomment %}
+
+    {{formulario}}
+    <input type="submit" value"Enviar">
+
+</form>
+
+{% endblock contenido %}

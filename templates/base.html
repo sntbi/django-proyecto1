@@ -27,9 +27,13 @@
                 <a class="navbar-brand" href={% url "inicio" %}>Inicio</a>
                 
                 <a class="navbar-brand" href={% url "probando" %}>Probando</a>
+                {% comment  %}  V1  {% endcomment %}
+                {% comment %} <a class="navbar-brand" href={% url "crear_alumno" 'Julian' 'Alvarez' %}>Creacion Alumno</a> {% endcomment %}
                 
-                <a class="navbar-brand" href={% url "crear_alumno" 'Julian' 'Alvarez' %}>Creacion Alumno</a>
+                {% comment  %}  V2  {% endcomment %}
+                <a class="navbar-brand" href={% url "crear_alumno_v2" %}>Creacion Alumno</a>
 
+                <a class="navbar-brand" href={% url "alumnos" %}>Alumnos</a>
 
                 {% comment %} <a class="btn btn-primary" href="#signup">Sign Up</a> {% endcomment %}
             </div>

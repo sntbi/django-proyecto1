@@ -8,5 +8,10 @@ urlpatterns = [
     path('template3/<str:nombre>/<str:apellido>/<edad>/', views.template3),
     path('template4/<str:nombre>/<str:apellido>/<edad>/', views.template4),
     path('prueba/', views.probando, name='probando'),
-    path('alumnos/crear/<str:nombre>/<str:apellido>/', views.crear_alumno, name='crear_alumno'),
+    # V1
+    # path('alumnos/crear/<str:nombre>/<str:apellido>/', views.crear_alumno, name='crear_alumno'),
+    # V2
+    path('alumnos/crear/', views.crear_alumno_v2, name='crear_alumno_v2'),
+    path('alumnos/', views.alumnos, name='alumnos'),
+    
 ]
