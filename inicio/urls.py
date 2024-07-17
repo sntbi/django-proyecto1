@@ -11,7 +11,10 @@ urlpatterns = [
     # V1
     # path('alumnos/crear/<str:nombre>/<str:apellido>/', views.crear_alumno, name='crear_alumno'),
     # V2
-    path('alumnos/crear/', views.crear_alumno_v2, name='crear_alumno_v2'),
     path('alumnos/', views.alumnos, name='alumnos'),
+    path('alumnos/crear/', views.crear_alumno_v2, name='crear_alumno_v2'),
+    path('alumnos/eliminar/<int:id>', views.eliminar_alumno, name='eliminar_alumno'),
+    path('alumnos/editar/<int:id>', views.editar_alumno, name='editar_alumno'),
+    path('alumnos/<int:id>/', views.ver_alumno, name='ver_alumno'),
     
 ]

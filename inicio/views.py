@@ -6,7 +6,7 @@ from django.template import Template, Context, loader
 
 from inicio.models import Alumno
 
-from inicio.forms import CrearAlumnoFormulario
+from inicio.forms import CrearAlumnoFormulario, BuscarAlumno, EditarAlumnoFormulario
 
 import random
 
@@ -130,6 +130,39 @@ def crear_alumno_v2 (request):
 
 def alumnos(request):
     
-    alumnos = Alumno.objects.all()
+    formulario = BuscarAlumno(request.GET)
+    if formulario.is_valid():
+        nombre = formulario.cleaned_data['nombre']
+        alumnos = Alumno.objects.filter(nombre__icontains=nombre)
     
-    return render(request, 'inicio/alumnos.html', {'alumnos': alumnos})
+    # alumnos = Alumno.objects.all()
+    
+    return render(request, 'inicio/alumnos.html', {'alumnos': alumnos, 'formulario': formulario})
+
+def eliminar_alumno(request, id):
+    alumno = Alumno.objects.get(id=id)
+    alumno.delete()
+    return redirect ('alumnos')
+
+def editar_alumno(request, id):
+    alumno = Alumno.objects.get(id=id)
+    
+    formulario = EditarAlumnoFormulario(initial={'nombre': alumno.nombre , 'apellido' : alumno.apellido, 'anio': 2002})
+    
+    if request.method == 'POST':
+        formulario = EditarAlumnoFormulario(request.POST)
+        if formulario.is_valid():
+            info = formulario.cleaned_data
+            
+            alumno.nombre = info['nombre']
+            alumno.apellido = info['apellido']
+            
+            alumno.save()
+            return redirect ('alumnos')
+            
+    
+    return render (request, 'inicio/editar_alumno.html', {'formulario': formulario, 'alumno': alumno})
+
+def ver_alumno (request, id):
+    alumno = Alumno.objects.get(id=id)
+    return render (request, 'inicio/ver_alumno.html', {'alumno': alumno})

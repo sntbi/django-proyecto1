@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Editar Alumno
+{% endblock title_head %}
+
+
+{% block h1_header %}
+Editando a {{alumno}}
+{% endblock h1_header %}
+
+{% block contenido %}
+
+<form action={% url "editar_alumno" alumno.id %} method="POST">
+    {% csrf_token %}
+
+    {{formulario}}
+    <input type="submit" value"Enviar">
+
+</form>
+
+{% endblock contenido %}

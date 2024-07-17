@@ -10,10 +10,22 @@ Alumnos
 {% endblock h1_header %}
 
 {% block contenido %}
+
+<a href={% url "crear_alumno_v2" %}>Creacion Alumno</a>
+
+<form action={% url "alumnos" %} method='get'>
+    {{formulario}}
+    <input type="submit" value='Buscar'>
+</form>
+
 {% if alumnos %}
     <ul>
         {% for alumno in alumnos %}
-        <li>{{alumno}}</li>
+        <li>{{alumno}} - 
+        <a href={% url "eliminar_alumno" alumno.id %}>Eliminar</a></li> - 
+        <a href={% url "editar_alumno" alumno.id %}>Editar</a></li> - 
+        <a href={% url "ver_alumno" alumno.id %}>Ver</a></li>
+        
         {% endfor %}
     </ul>
 
