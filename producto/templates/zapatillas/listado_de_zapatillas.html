@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Lista Zapatillas
+{% endblock title_head %}
+
+
+{% block h1_header %}
+Zapatillas
+{% endblock h1_header %}
+
+{% block contenido %}
+
+{% comment %} <a href={% url "crear_alumno_v2" %}>Creacion Zapatilla</a> {% endcomment %}
+
+{% if zapatillas %}
+    <ul>
+        {% for zapatilla in zapatillas %}
+        <li>{{zapatilla}} - 
+        {% comment %} <a href={% url "eliminar_zapatilla" zapatilla.id %}>Eliminar</a></li> - 
+        <a href={% url "editar_zapatilla" zapatilla.id %}>Editar</a></li> - 
+        <a href={% url "ver_zapatilla" zapatilla.id %}>Ver</a></li>
+         {% endcomment %}
+        {% endfor %}
+    </ul>
+
+{% else %}
+<p>
+    No hay zapatillas creadas
+</p>
+{% endif %}
+
+{% endblock contenido %}

@@ -1,32 +1,32 @@
 {% extends "base.html" %}
 
 {% block title_head %}
-Lista Paletas
+Lista zapatillas
 {% endblock title_head %}
 
 
 {% block h1_header %}
-Listado de Paletas
+Listado de zapatillas
 {% endblock h1_header %}
 
 {% block contenido %}
 
-<a href={% url "crear_paleta" %}>Creacion Paleta</a>
+<a href={% url "crear_zapatilla" %}>Creacion zapatilla</a>
 
-{% if paletas %}
+{% if Zapatilla %}
     <ul>
-        {% for paleta in paletas %}
-        <li>{{paleta}} - 
+        {% for zapatilla in zapatillas %}
+        <li>{{zapatillas}} - 
         {% comment %} <a href={% url "eliminar_paleta" paleta.id %}>Eliminar</a></li> - 
         <a href={% url "editar_paleta" paleta.id %}>Editar</a></li> - 
         {% endcomment %}
-        <a href={% url "ver_paleta" paleta.id %}>Ver</a></li>
+        <a href={% url "ver_zapatilla" zapatilla.id %}>Ver</a></li>
         {% endfor %}
     </ul>
 
 {% else %}
 <p>
-    No hay paletas creadas
+    No hay zapatillas creadas
 </p>
 {% endif %}
 

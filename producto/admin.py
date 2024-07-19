@@ -1,6 +1,5 @@
 from django.contrib import admin
-from .models import Paleta
-
+from .models import Zapatilla
 # Register your models here.
 
-admin.site.register(Paleta)
+admin.site.register(Zapatilla)
