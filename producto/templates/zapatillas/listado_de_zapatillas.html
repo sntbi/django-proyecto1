@@ -17,9 +17,8 @@ Zapatillas
     <ul>
         {% for zapatilla in zapatillas %}
         <li>{{zapatilla}} - 
-        {% comment %} <a href={% url "eliminar_zapatilla" zapatilla.id %}>Eliminar</a></li> - 
+        <a href={% url "eliminar_zapatilla" zapatilla.id %}>Eliminar</a></li> - 
         <a href={% url "editar_zapatilla" zapatilla.id %}>Editar</a></li> - 
-        {% endcomment %}
          <a href={% url "ver_zapatilla" zapatilla.id %}>Ver</a></li> 
         {% endfor %}
     </ul>

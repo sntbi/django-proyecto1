@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Borrar Zapatilla
+{% endblock title_head %}
+
+{% block h1_header %}
+Borrando a {{zapatilla}}
+{% endblock h1_header %}
+
+{% block contenido %}
+
+<form action={% url "eliminar_zapatilla" zapatilla.id %} method="POST">
+    {% csrf_token %}
+    <p>
+        Desea borrar {{zapatilla}}?
+    </p>
+    <input type="submit" value"Borrar">
+
+</form>
+
+{% endblock contenido %}
