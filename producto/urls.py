@@ -7,8 +7,10 @@
 
 
 from django.urls import path
-from .views import ZapatillasView
+from .views import ZapatillasView, CrearZapatilla, VerZapatilla
 
 urlpatterns = [
-    path('producto/zapatilla', ZapatillasView.as_view(), name='zapatillas'),
+    path('zapatilla/', ZapatillasView.as_view(), name='zapatillas'),
+    path('zapatilla/crear', CrearZapatilla.as_view(), name='crear_zapatilla'),
+    path('zapatilla/<int:pk>', VerZapatilla.as_view(), name='ver_zapatilla'),
 ]

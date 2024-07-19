@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Crear zapatilla
+{% endblock title_head %}
+
+{% block h1_header %}
+Estas creando una zapatilla
+{% endblock h1_header %}
+
+{% block contenido %}
+
+<form action={% url "crear_zapatilla" %} method="POST">
+    {% csrf_token %}
+
+    {{form}}
+
+    <input type="submit" value"Enviar">
+
+</form>
+
+{% endblock contenido %}

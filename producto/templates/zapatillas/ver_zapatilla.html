@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Ver zapatilla
+{% endblock title_head %}
+
+{% block h1_header %}
+{{zapatilla}}
+{% endblock h1_header %}
+
+{% block contenido %}
+<ul>
+    <li> Marca: {{zapatilla.marca}}</li>
+    <li> Descripcion: {{zapatilla.descripcion}}</li>
+    <li> fecha: {{zapatilla.fecha}}</li>
+</ul>
+{% endblock contenido %}
