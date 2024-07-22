@@ -26,7 +26,7 @@
             <div class="container">
                 <a class="navbar-brand" href={% url "inicio" %}>Inicio</a>
                 
-                <a class="navbar-brand" href={% url "probando" %}>Probando</a>
+                {% comment %} <a class="navbar-brand" href={% url "probando" %}>Probando</a> {% endcomment %}
                 {% comment  %}  V1  {% endcomment %}
                 {% comment %} <a class="navbar-brand" href={% url "crear_alumno" 'Julian' 'Alvarez' %}>Creacion Alumno</a> {% endcomment %}
                 
@@ -36,7 +36,7 @@
                 <a class="navbar-brand" href={% url "alumnos" %}>Alumnos</a>
                 <a class="navbar-brand" href={% url "zapatillas" %}>Zapatillas</a>
 
-                {% comment %} <a class="btn btn-primary" href="#signup">Sign Up</a> {% endcomment %}
+                <a class="btn btn-primary" href={% url "login" %}>Iniciar Sesion</a>
             </div>
         </nav>
         <!-- Masthead-->
