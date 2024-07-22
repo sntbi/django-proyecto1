@@ -10,6 +10,8 @@ from inicio.forms import CrearAlumnoFormulario, BuscarAlumno, EditarAlumnoFormul
 
 import random
 
+from django.contrib.auth.decorators import login_required
+
 def inicio(request):
     return render(request, 'inicio/index.html')
 
@@ -75,14 +77,6 @@ def template4(request, nombre, apellido, edad):
     return render(request, 'template2.html', datos)
 
 
-
-
-
-
-
-
-
-
 def probando(request):
     
     lista = list(range(500))
@@ -139,11 +133,13 @@ def alumnos(request):
     
     return render(request, 'inicio/alumnos.html', {'alumnos': alumnos, 'formulario': formulario})
 
+@login_required
 def eliminar_alumno(request, id):
     alumno = Alumno.objects.get(id=id)
     alumno.delete()
     return redirect ('alumnos')
 
+@login_required
 def editar_alumno(request, id):
     alumno = Alumno.objects.get(id=id)
     

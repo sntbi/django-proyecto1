@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title_head %}
+Registro
+{% endblock title_head %}
+
+{% block h1_header %}
+Registrarse
+{% endblock h1_header %}
+
+{% block contenido %}
+
+<form action={% url "register" %} method="POST">
+    {% csrf_token %}
+
+    {{formulario}}
+
+    <input type="submit" value="Confirmar">
+
+</form>
+
+{% endblock contenido %}
