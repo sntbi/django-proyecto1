@@ -1,6 +1,6 @@
 asgiref==3.8.1
 Django==5.0.6
-mipaquete @ file:///C:/Users/santi/OneDrive/Escritorio/Coderhouse%20-%20VSC/dist/mipaquete-0.0.1.tar.gz#sha256=9c9f7d29e10b259900e3764c0ad1aa1ae073bb516b8558f9a19410e4a9658688
+# mipaquete @ file:///C:/Users/santi/OneDrive/Escritorio/Coderhouse%20-%20VSC/dist/mipaquete-0.0.1.tar.gz#sha256=9c9f7d29e10b259900e3764c0ad1aa1ae073bb516b8558f9a19410e4a9658688
 setuptools==69.5.1
 sqlparse==0.5.0
 tzdata==2024.1
