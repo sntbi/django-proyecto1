@@ -91,7 +91,7 @@ def crear_alumno(request, nombre, apellido):
     alumno.save()
     return render(request,'alumno_templates/creacion.html', {'alumno': alumno})
     
-    
+@login_required  
 def crear_alumno_v2 (request):
     # V1
     # print('Valor de la request: ' , request)
