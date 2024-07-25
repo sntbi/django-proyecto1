@@ -12,5 +12,12 @@ Ver alumno
 <ul>
     <li> Nombre: {{alumno.nombre}}</li>
     <li> Apellido: {{alumno.apellido}}</li>
+    <li> Imagen: {{alumno.imagen}}</li>
 </ul>
+
+{% if alumno.imagen %}
+    <li> Avatar: <img src="{{alumno.imagen.url}}" alt="Avatar" height = "50px">
+        {% endif %} 
+        
+    </li>
 {% endblock contenido %}

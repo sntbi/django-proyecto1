@@ -11,7 +11,7 @@ Estas creando un alumno
 
 {% block contenido %}
 
-<form action={% url "crear_alumno_v2" %} method="POST">
+<form action={% url "crear_alumno" %} method="POST">
     {% csrf_token %}
     {% comment %} <p>
         Nombre:
