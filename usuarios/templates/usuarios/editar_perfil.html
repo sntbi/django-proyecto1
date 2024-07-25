@@ -19,6 +19,18 @@ Editar Perfil
 
 </form>
 
-<a href={% url "cambiar_pass" %}>Cambiar contraseña</a>
+<p>
+    <li>
+        <a href={% url "cambiar_pass" %}>Cambiar contraseña</a>
+    </li>
+        
+        
+        
+     <li>
+        <a href={% url "ver_perfil" user.id %}>ver perfil</a>
+    </li>
+    
+</p>
+
 
 {% endblock contenido %}

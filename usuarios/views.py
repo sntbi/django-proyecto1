@@ -7,6 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from usuarios.models import DatosExtra
+from django.views.generic.detail import DetailView
 
 def login(request):
     
@@ -66,3 +67,20 @@ def aboutme(request):
 class CambiarPassword(LoginRequiredMixin, PasswordChangeView):
     template_name = 'usuarios/cambiar_pass.html'
     success_url = reverse_lazy('inicio') 
+    
+# class VerPerfil(DetailView):
+#     model = DatosExtra
+#     template_name = 'usuarios/ver_perfil.html'
+    
+    
+# def ver_perfil (request, id):
+#     Perfil = Perfil.objects.get(id=id)
+#     return render (request, 'inicio/ver_perfil.html', {'perfil': perfil})
+
+@login_required
+def ver_perfil(request,id):
+    
+    user = DatosExtra.objects.get(id=id)
+    # datosextra = request.user.datosextra
+    
+    return render (request,'usuarios/ver_perfil.html', {'user':user})
