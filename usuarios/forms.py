@@ -19,11 +19,9 @@ class EditarPerfil(UserChangeForm):
     first_name = forms.CharField(label='Nombre')
     last_name = forms.CharField(label='Apellido')
     avatar = forms.ImageField(required=False)
+    hobbie = forms.CharField(required=False , label='Hobbie')
     
     
     class Meta:
         model = User
-        fields = ['email', 'first_name', 'last_name', 'avatar']
-        
-# class EditarPassword(PasswordChangeForm):
-#     new_password1 = forms.CharField(label='Ingrese su nueva contrase;a')
+        fields = ['email', 'first_name', 'last_name', 'hobbie', 'avatar']

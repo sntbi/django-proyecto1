@@ -14,7 +14,12 @@ Ver Perfil
     <li> Usuario: {{request.user.username}}</li>
     <li> Nombre: {{request.user.first_name}}</li>
     <li> Apellido: {{request.user.last_name}}</li>
-    <li> Avatar:  <img src="{{request.user.datosextra.avatar.url}}" alt="Avatar" height = "100px">
+    <li> Hobbie: {{request.user.datosextra.hobbie}}</li>
+    
+    {% if request.user.datosextra.avatar %}
+    <li> Avatar: <img src="{{request.user.datosextra.avatar.url}}" alt="Avatar" height = "50px">
+        {% endif %} 
+        
     </li>
 </ul>  
 <a href={% url "editar_perfil" %}>Editar Perfil</a>

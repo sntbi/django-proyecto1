@@ -43,16 +43,28 @@ def register(request):
 
 @login_required
 def editar_perfil(request):
-    
     datosextra = request.user.datosextra
-    formulario = EditarPerfil(initial={'avatar': datosextra.avatar}, instance=request.user)
+    
+    initial_data = {
+        'avatar': datosextra.avatar,
+        'hobbie': datosextra.hobbie
+    }
+    
+    formulario = EditarPerfil(initial= initial_data, instance=request.user)
     
     if request.method == 'POST':
         formulario = EditarPerfil(request.POST, request.FILES ,  instance=request.user )
         if formulario.is_valid():
             
+            avatar = formulario.cleaned_data.get('avatar')
+            hobbie = formulario.cleaned_data.get('hobbie')
             
-            datosextra.avatar = formulario.cleaned_data.get('avatar')
+            if avatar:
+                datosextra.avatar = avatar
+            else:
+                formulario.cleaned_data['avatar'] = datosextra.avatar
+                
+            datosextra.hobbie = hobbie
             datosextra.save() 
             
             formulario.save()
@@ -68,19 +80,11 @@ class CambiarPassword(LoginRequiredMixin, PasswordChangeView):
     template_name = 'usuarios/cambiar_pass.html'
     success_url = reverse_lazy('inicio') 
     
-# class VerPerfil(DetailView):
-#     model = DatosExtra
-#     template_name = 'usuarios/ver_perfil.html'
-    
-    
-# def ver_perfil (request, id):
-#     Perfil = Perfil.objects.get(id=id)
-#     return render (request, 'inicio/ver_perfil.html', {'perfil': perfil})
+
 
 @login_required
 def ver_perfil(request,id):
     
-    user = DatosExtra.objects.get(id=id)
-    # datosextra = request.user.datosextra
+    datosextra = DatosExtra.objects.get(id=id)
     
-    return render (request,'usuarios/ver_perfil.html', {'user':user})
+    return render (request,'usuarios/ver_perfil.html', {'datosextra':datosextra})
