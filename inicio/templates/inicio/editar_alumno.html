@@ -11,7 +11,7 @@ Editando a {{alumno}}
 
 {% block contenido %}
 
-<form action={% url "editar_alumno" alumno.id %} method="POST">
+<form action={% url "editar_alumno" alumno.id %} method="POST" enctype='multipart/form-data' >
     {% csrf_token %}
 
     {{formulario}}
